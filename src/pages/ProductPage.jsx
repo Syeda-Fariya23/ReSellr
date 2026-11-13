@@ -7,7 +7,7 @@ const ProductPage = () => {
   // Read category from URL
 
   const [searchParams] = useSearchParams();
-
+const [productData, setproductData] = useState(second)
   // const products = [
   //   {
   //     id: 1,
@@ -128,7 +128,7 @@ const ProductPage = () => {
   useEffect(()=>{
     const fetchData=async()=>{
       const BASE_URL='https://resellr-backend.vercel.app/'
-      const response=await fetch(`${BASE_URL}`)
+      const response=await fetch(`${BASE_URL}allproducts`)
       const responseData=await response.json();
     }
     fetchData();

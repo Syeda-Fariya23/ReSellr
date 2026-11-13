@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate, useParams, useLocation } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, EarOffIcon } from "lucide-react";
+import { BASE_URL, useFetch } from '../components/useFetch';
+
+
 
 const ProductDetailPage = () => {
-  const { id } = useParams()
   const navigate = useNavigate()
   const location = useLocation();
-
+  const { id } = useParams()
+  const{data,error}=useFetch(`${BASE_URL} /products/:${id}`)
+  
   const product = location.state?.product;
+  // const BASE_URL='https://resellr-backend.vercel.app/'
+  // useEffect(()=>{
+  //   const fetchProductData=async()=>{
+  //     const response=await fetch(`${BASE_URL}products/:id` )
+  //     if(!response.ok)
+  //     {
+  //       throw new Error("Fail to fetch the product data");
+  //     }
+  //     return response.json()
+  //   }
+  // })
+
 
   if (!product) {
     return (
@@ -22,7 +38,7 @@ const ProductDetailPage = () => {
         </p>
 
         <button
-          onClick={() => navigate("/products")}
+          onClick={() => navigate("/allproducts")}
           className="bg-[#303B32] text-white px-5 sm:px-6 py-3 rounded-xl hover:bg-[#6F8966] active:scale-95 transition text-sm sm:text-base"
         >
           Back to Explore Products
