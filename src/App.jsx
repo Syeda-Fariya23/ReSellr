@@ -8,6 +8,7 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import {AuthProvider} from "./context/AuthContext";
 import ProfilePage from "./pages/ProfilePage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import MyListingPage from './pages/MyListingPage';
 const App = () => {
   return (
     <BrowserRouter>
@@ -23,6 +24,9 @@ const App = () => {
           <Route path='/product/:id' element={<ProductDetailPage/>}/>
           <Route path='/profile' element={<ProtectedRoute>
             <ProfilePage />
+        </ProtectedRoute>}/>
+          <Route path='/my-listings' element={<ProtectedRoute>
+            <MyListingPage />
         </ProtectedRoute>}/>
         </Routes>
       </div>

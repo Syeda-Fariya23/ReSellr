@@ -86,7 +86,10 @@ const ProfilePage = () => {
 
                     <div className="grid md:grid-cols-3 gap-5">
 
-                        <div className="border rounded-xl p-5">
+                        <div
+                            onClick={() => navigate("/my-listings")}
+                            className="border rounded-xl p-5 cursor-pointer"
+                        >
                             <Package className="text-[#647A62] mb-3" />
                             <h4 className="font-semibold">My Listings</h4>
                             <p className="text-sm text-gray-500 mt-1">

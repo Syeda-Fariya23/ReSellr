@@ -8,56 +8,56 @@ const ProductPage = () => {
 
   const [searchParams] = useSearchParams();
 
-  const products = [
-    {
-      id: 1,
-      name: "Iphone 13",
-      price: 35000,
-      category: "mobile",
-      condition: "used",
-      location: "Bangalore",
-      image: "/images/mobile.avif",
-      description: "iPhone 13 in good working condition with a stylish design, excellent camera quality and smooth performance. Gently used and well maintained.",
-      sellerName: "Sneha Patil",
-      sellerPhone: "9876543213",
-    },
-    {
-      id: 2,
-      name: "Iphone 18 pro max",
-      price: 350000,
-      category: "mobile",
-      condition: "new",
-      location: "Mysuru",
-      image: "/images/iphone.jpg",
-      description: "Brand-new iPhone 18 Pro Max with a premium design, advanced camera features, powerful performance and excellent battery life.",
-      sellerName: "Rahul Sharma",
-      sellerPhone: "9876543210",
-    },
-    {
-      id: 3,
-      name: "Sofa",
-      price: 34000,
-      category: "furniture",
-      condition: "used",
-      location: "Hubballi",
-      image: "/images/furniture.jpg",
-      description: "Comfortable and spacious sofa with an elegant design. Gently used, well maintained and suitable for modern living rooms.",
-      sellerName: "Priya Reddy",
-      sellerPhone: "9876543211",
-    },
-    {
-      id: 4,
-      name: "Dell Laptop",
-      price: 34000,
-      category: "electronics",
-      condition: "used",
-      location: "Hubballi",
-      image: "/images/dell.jpg",
-      description: "Dell laptop in good working condition, suitable for everyday tasks, office work, browsing and online learning. Well maintained.",
-      sellerName: "Arjun Kumar",
-      sellerPhone: "9876543212",
-    }
-  ];
+  // const products = [
+  //   {
+  //     id: 1,
+  //     name: "Iphone 13",
+  //     price: 35000,
+  //     category: "mobile",
+  //     condition: "used",
+  //     location: "Bangalore",
+  //     image: "/images/mobile.avif",
+  //     description: "iPhone 13 in good working condition with a stylish design, excellent camera quality and smooth performance. Gently used and well maintained.",
+  //     sellerName: "Sneha Patil",
+  //     sellerPhone: "9876543213",
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Iphone 18 pro max",
+  //     price: 350000,
+  //     category: "mobile",
+  //     condition: "new",
+  //     location: "Mysuru",
+  //     image: "/images/iphone.jpg",
+  //     description: "Brand-new iPhone 18 Pro Max with a premium design, advanced camera features, powerful performance and excellent battery life.",
+  //     sellerName: "Rahul Sharma",
+  //     sellerPhone: "9876543210",
+  //   },
+  //   {
+  //     id: 3,
+  //     name: "Sofa",
+  //     price: 34000,
+  //     category: "furniture",
+  //     condition: "used",
+  //     location: "Hubballi",
+  //     image: "/images/furniture.jpg",
+  //     description: "Comfortable and spacious sofa with an elegant design. Gently used, well maintained and suitable for modern living rooms.",
+  //     sellerName: "Priya Reddy",
+  //     sellerPhone: "9876543211",
+  //   },
+  //   {
+  //     id: 4,
+  //     name: "Dell Laptop",
+  //     price: 34000,
+  //     category: "electronics",
+  //     condition: "used",
+  //     location: "Hubballi",
+  //     image: "/images/dell.jpg",
+  //     description: "Dell laptop in good working condition, suitable for everyday tasks, office work, browsing and online learning. Well maintained.",
+  //     sellerName: "Arjun Kumar",
+  //     sellerPhone: "9876543212",
+  //   }
+  // ];
 
   // States
   const [searchTerm, setSearchTerm] = useState(searchParams.get("search")||"");
@@ -125,6 +125,16 @@ const ProductPage = () => {
     setSelectedLocation("");
     setSortBy("");
   };
+  useEffect(()=>{
+    const fetchData=async()=>{
+      const BASE_URL='https://resellr-backend.vercel.app/'
+      const response=await fetch(`${BASE_URL}`)
+      const responseData=await response.json();
+    }
+    fetchData();
+
+  },[])
+  
 
   return (
     <div className="min-h-screen bg-[#F4F0E6]">
