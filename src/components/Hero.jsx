@@ -52,7 +52,7 @@ const Hero = () => {
                     <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 sm:gap-4">
 
                         <button
-                            onClick={() => navigate('/products')}
+                            onClick={() => navigate('/allproducts')}
                             className="w-full sm:w-auto bg-[#829B78] hover:bg-[#303B32] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-semibold shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                         >
                             Explore Products →

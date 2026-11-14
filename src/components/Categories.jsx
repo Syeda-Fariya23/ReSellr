@@ -39,10 +39,11 @@ const Categories = () => {
     ]
 
     const handleCategoryClick = (category) => {
-        navigate(`/products?category=${category}`)
+        
     }
 
     return (
+        <Link to={`products?category=${category}`}>
         <section className="bg-[#F4F0E6] px-4 sm:px-6 py-10 sm:py-12 lg:py-16">
 
             <div className="max-w-7xl mx-auto">
@@ -77,6 +78,7 @@ const Categories = () => {
                 </div>
             </div>
         </section>
+        </Link>
     )
 }
 

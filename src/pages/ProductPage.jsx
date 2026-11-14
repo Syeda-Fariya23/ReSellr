@@ -7,7 +7,7 @@ const ProductPage = () => {
   // Read category from URL
 
   const [searchParams] = useSearchParams();
-const [productData, setproductData] = useState(second)
+const [productData, setproductData] = useState([])
   // const products = [
   //   {
   //     id: 1,
@@ -77,7 +77,7 @@ const [productData, setproductData] = useState(second)
   const [sortBy, setSortBy] = useState("");
 
   // Filtering products
-  const filterProducts = products.filter((item) => {
+  const filterProducts = productData.filter((item) => {
 
     const matchesSearch = item.name
       .toLowerCase()
@@ -130,6 +130,8 @@ const [productData, setproductData] = useState(second)
       const BASE_URL='https://resellr-backend.vercel.app/'
       const response=await fetch(`${BASE_URL}allproducts`)
       const responseData=await response.json();
+      console.log(responseData)
+      setproductData(responseData)
     }
     fetchData();
 
@@ -284,7 +286,7 @@ const [productData, setproductData] = useState(second)
           <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
 
             {sortedProducts.map((item) => (
-              <ProductCard key={item.id} product={item} />
+              <ProductCard key={item.id} productData={item} />
             ))}
 
           </div>
