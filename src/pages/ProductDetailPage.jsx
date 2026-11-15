@@ -9,7 +9,7 @@ const ProductDetailPage = () => {
   const navigate = useNavigate()
   const location = useLocation();
   const { id } = useParams()
-  const{data,error}=useFetch(`${BASE_URL} /products/:${id}`)
+  const{data,error}=useFetch(`${BASE_URL}/products/:id${id}`)
   
   const product = location.state?.product;
   // const BASE_URL='https://resellr-backend.vercel.app/'
@@ -38,7 +38,7 @@ const ProductDetailPage = () => {
         </p>
 
         <button
-          onClick={() => navigate("/allproducts")}
+          onClick={() => navigate("/products/:id")}
           className="bg-[#303B32] text-white px-5 sm:px-6 py-3 rounded-xl hover:bg-[#6F8966] active:scale-95 transition text-sm sm:text-base"
         >
           Back to Explore Products

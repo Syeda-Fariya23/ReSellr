@@ -1,9 +1,7 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const Categories = () => {
-
-    const navigate = useNavigate()
 
     const categories = [
         {
@@ -38,12 +36,9 @@ const Categories = () => {
         }
     ]
 
-    const handleCategoryClick = (category) => {
-        
-    }
+
 
     return (
-        <Link to={`products?category=${category}`}>
         <section className="bg-[#F4F0E6] px-4 sm:px-6 py-10 sm:py-12 lg:py-16">
 
             <div className="max-w-7xl mx-auto">
@@ -54,31 +49,32 @@ const Categories = () => {
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-5 lg:gap-6">
 
-                    {categories.map((category) => (
-                        <button
-                            key={category.value}
-                            type="button"
-                            onClick={() => handleCategoryClick(category.value)}
-                            aria-label={`Explore ${category.name}`}
+                    {categories.map((cat,index) => (
+                        <Link 
+                        to={`/allproducts?category=${cat.value}`}
+                        key={index}
+                        
+                            aria-label={`Explore ${cat.value}`}
                             className="bg-white p-2.5 sm:p-4 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-1 active:scale-95 transition duration-300 text-center cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#829B78]"
-                        >
-                            <img
-                                src={category.image}
-                                alt={category.name}
-                                loading="lazy"
-                                className="w-full aspect-square sm:aspect-4/3 object-cover rounded-lg mb-2 sm:mb-3"
-                            />
+                            >
+                            
+                                <img
+                                    src={cat.image}
+                                    alt={cat.name}
+                                    loading="lazy"
+                                    className="w-full aspect-square sm:aspect-4/3 object-cover rounded-lg mb-2 sm:mb-3"
+                                />
 
-                            <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-[#303B32]">
-                                {category.name}
-                            </h3>
-                        </button>
+                                <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-[#303B32]">
+                                    {cat.name}
+                                </h3>
+                           
+                        </Link>
                     ))}
 
                 </div>
             </div>
         </section>
-        </Link>
     )
 }
 
