@@ -14,8 +14,7 @@ const ProductDetailPage = () => {
   }
 
   if (!data || (Array.isArray(data) && data.length === 0)) {
-    return <p>Loading pro
-      duct...</p>;
+    return <p className="text-center mt-20 text-xl font-medium text-[#829B78]">Loading product...</p>;
   }
   if (!product) {
     return (
@@ -30,7 +29,7 @@ const ProductDetailPage = () => {
         </p>
 
         <button
-          onClick={() => navigate("/products")}
+          onClick={() => navigate("/allproducts")}
           className="bg-[#303B32] text-white px-5 sm:px-6 py-3 rounded-xl hover:bg-[#6F8966] active:scale-95 transition text-sm sm:text-base"
         >
           Back to Explore Products
@@ -47,7 +46,7 @@ const ProductDetailPage = () => {
 
         {/* Back Button */}
         <button
-          onClick={() => navigate("/products")}
+          onClick={() => navigate("/allproducts")}
           className="mb-5 sm:mb-8 flex items-center gap-2 text-[#303B32] text-sm sm:text-base font-semibold hover:text-[#829B78] transition"
         >
           <ArrowLeft size={20} />
