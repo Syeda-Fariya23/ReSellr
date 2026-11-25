@@ -1,30 +1,22 @@
-import React, { useEffect } from 'react'
-import { useNavigate, useParams, useLocation } from "react-router-dom";
+import { useNavigate, useParams, } from "react-router-dom";
 import { ArrowLeft, EarOffIcon } from "lucide-react";
 import { BASE_URL, useFetch } from '../components/useFetch';
 
-
-
 const ProductDetailPage = () => {
   const navigate = useNavigate()
-  const location = useLocation();
+
   const { id } = useParams()
-  const{data,error}=useFetch(`${BASE_URL}/products/:id${id}`)
-  
-  const product = location.state?.product;
-  // const BASE_URL='https://resellr-backend.vercel.app/'
-  // useEffect(()=>{
-  //   const fetchProductData=async()=>{
-  //     const response=await fetch(`${BASE_URL}products/:id` )
-  //     if(!response.ok)
-  //     {
-  //       throw new Error("Fail to fetch the product data");
-  //     }
-  //     return response.json()
-  //   }
-  // })
+  const { data, error } = useFetch(`${BASE_URL}products/${id}`)
 
+  const product = data;
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
+  if (!data || (Array.isArray(data) && data.length === 0)) {
+    return <p>Loading pro
+      duct...</p>;
+  }
   if (!product) {
     return (
       <div className="min-h-screen bg-[#F4F0E6] flex flex-col items-center justify-center px-4 sm:px-6 py-10 text-center">
@@ -38,7 +30,7 @@ const ProductDetailPage = () => {
         </p>
 
         <button
-          onClick={() => navigate("/products/:id")}
+          onClick={() => navigate("/products")}
           className="bg-[#303B32] text-white px-5 sm:px-6 py-3 rounded-xl hover:bg-[#6F8966] active:scale-95 transition text-sm sm:text-base"
         >
           Back to Explore Products
@@ -92,17 +84,16 @@ const ProductDetailPage = () => {
               </p>
 
               {/* Condition */}
-              <span className={`w-fit px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-5 sm:mb-6 ${
-                product.condition === "new"
+              <span className={`w-fit px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold mb-5 sm:mb-6 ${product.condition === "new"
                   ? "bg-[#DCE3D6] text-[#303B32]"
                   : "bg-[#303B32] text-white"
-              }`}>
+                }`}>
                 {product.condition === "new" ? "New" : "Used"}
               </span>
 
               {/* Location */}
               <div className="flex items-center gap-2 text-sm sm:text-base text-gray-600 mb-5 sm:mb-6">
-                
+
                 <p>{product.location}</p>
               </div>
 

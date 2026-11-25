@@ -1,28 +1,10 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
-// import { BASE_URL } from "./useFetch";
 
 const ProductCard = ({ productData }) => {
-  // const navigate = useNavigate();
-
-  // const handleProductClick = () => {
-  //   navigate(`/product/${product.id}`, {
-  //     state: { product }
-  //   });
-  // };
-
   return (
-    <Link to={`/allproducts/${productData.id}`}>
-    <div
-      // onClick={handleProductClick}
-      // onKeyDown={(e) => {
-      //   if (e.key === "Enter" || e.key === " ") {
-      //     e.preventDefault();
-      //     handleProductClick();
-      //   }
-      // }}
-      // role="button"
-      // tabIndex={0}
+    <Link to={`/product/${productData.id}`}>
+          <div
       aria-label={`View ${productData.name}, priced at ₹${productData.price.toLocaleString("en-IN")}`}
       className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group border border-[#DCE3D6] cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#829B78]"
     >
@@ -79,7 +61,7 @@ const ProductCard = ({ productData }) => {
 
     </div>
     </Link>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;
