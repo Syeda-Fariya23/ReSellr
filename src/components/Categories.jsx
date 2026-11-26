@@ -5,11 +5,6 @@ const Categories = () => {
 
     const categories = [
         {
-            name: "Mobiles",
-            value: "mobile",
-            image: "/images/mobile.avif"
-        },
-        {
             name: "Electronics",
             value: "electronics",
             image: "/images/electronics.jpg"
@@ -25,14 +20,19 @@ const Categories = () => {
             image: "/images/furniture.jpg"
         },
         {
-            name: "Fashion",
-            value: "fashion",
+            name: "Clothing",
+            value: "clothing",
             image: "/images/fashion.jpg"
         },
         {
             name: "Books",
             value: "books",
             image: "/images/books1.avif"
+        },
+        {
+            name: "Footwears",
+            value: "footwears",
+            image: "/images/Footwear.jpg"
         }
     ]
 
