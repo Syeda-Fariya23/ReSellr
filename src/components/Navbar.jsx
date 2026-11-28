@@ -11,11 +11,11 @@ const Navbar = () => {
     const handleSearch = (e) => {
         e.preventDefault();
 
-        const search = searchTerm.trim();
+        const search = searchTerm.trim().toLocaleLowerCase();
 
         if (!search) return;
 
-        navigate(`/products?search=${encodeURIComponent(search)}`);
+        navigate(`/products?search=${encodeURIComponent(search.toLocaleLowerCase())}`);
     };
 
     return (
@@ -83,7 +83,7 @@ const Navbar = () => {
                         type="text"
                         placeholder="Search for products..."
                         aria-label="Search for products"
-                        value={searchTerm}
+                        value={searchTerm.toLowerCase()}
                         onChange={(e) => setSearchTerm(e.target.value)}
                         className="w-full min-w-0 px-3 sm:px-4 py-3 outline-none text-sm sm:text-base text-[#303B32] bg-transparent"
                     />
